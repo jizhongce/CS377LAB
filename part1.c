@@ -10,7 +10,7 @@ int main(){
 		k = fork();
 		if(k==0){
 			sleep(10);
-			printf("Grandchild process with process id %d has completed.\n", getpid());
+			printf("Grandchild process with process ID %d has completed.\n", getpid());
 		}
 		else{
 			waitpid(-1,NULL,0);
