@@ -10,10 +10,13 @@ int main(){
   int input1;
 
   printf("Please enter process ID\n");
+  //get the user input
   scanf("%d",&input1);
 
+  //kill the input process
   int a = kill(input1,SIGKILL);
 
+  //handle errors
   switch (errno) {
     case EINVAL: printf("The value is not correct\n");
       break;
@@ -23,4 +26,5 @@ int main(){
       break;
     default: printf("SUCCESS\n");
   }
+  
 }

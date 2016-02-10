@@ -1,6 +1,8 @@
 CC = gcc
 CFLAG = -std=c99
 
+all: part1 part2 part3
+
 part1: part1.c
 		$(CC) $(CFLAG) part1.c -o part1
 
