@@ -1,0 +1,82 @@
+part1 output:
+
+  Grandchild process with process ID 2595 has completed.
+  Child process with process ID 2594 has completed.
+  Parent process with process ID 2593 has finished.
+
+
+
+
+
+part2 output:
+
+for success:
+
+1649 pts/0    00:00:00 part1
+1684 pts/0    00:00:00 part3
+2254 pts/0    00:00:00 part3
+2255 pts/0    00:00:00 part3
+2259 pts/0    00:00:00 part3
+2260 pts/0    00:00:00 part3
+2261 pts/0    00:00:00 part3
+2262 pts/0    00:00:00 part3
+2263 pts/0    00:00:00 part3
+2264 pts/0    00:00:00 part3
+2265 pts/0    00:00:00 part3
+2266 pts/0    00:00:00 part3
+2358 pts/0    00:00:00 part3
+2431 pts/0    00:00:00 part3
+2457 pts/0    00:00:00 part3
+2664 pts/0    00:00:00 ps
+
+[14:24:12] vincent@vincent-VirtualBox /home/vincent/cmpsci377/CS377LAB (0)
+> ./part2
+Please enter process ID
+2457
+SUCCESS
+fish: Job 6, “./part3” terminated by signal SIGKILL (Forced quit)
+
+
+for other situations:
+
+Please enter process ID
+1234
+No such a process
+
+Please enter process ID
+1
+Operation not permitted
+
+
+
+
+
+part3 output:
+
+> ./part3
+
+batch-shell> ls
+Makefile  part1.c  part2.c  part3.c	sample.txt
+part1	  part2    part3    README.txt
+
+batch-shell> pwd
+/home/vincent/cmpsci377/CS377LAB
+
+batch-shell> ls pwd
+Makefile  part1.c  part2.c  part3.c	sample.txt
+part1	  part2    part3    README.txt
+/home/vincent/cmpsci377/CS377LAB
+
+batch-shell> ls jfnji pwd
+Makefile  part1.c  part2.c  part3.c	sample.txt
+part1	  part2    part3    README.txt
+wrong input
+/home/vincent/cmpsci377/CS377LAB
+
+batch-shell> sajdisdf
+wrong input
+
+batch-shell> quit
+
+[14:43:16] vincent@vincent-VirtualBox /home/vincent/cmpsci377/CS377LAB (0)
+>

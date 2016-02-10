@@ -14,7 +14,7 @@ int main(){
   scanf("%d",&input1);
 
   //kill the input process
-  int a = kill(input1,SIGKILL);
+  kill(input1,SIGKILL);
 
   //handle errors
   switch (errno) {
@@ -26,5 +26,5 @@ int main(){
       break;
     default: printf("SUCCESS\n");
   }
-  
+
 }

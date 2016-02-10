@@ -3,7 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/wait.h>
-
+#include <errno.h>
 
 
 int main(){
@@ -35,9 +35,10 @@ int main(){
       token = strtok(NULL,tmp);
     }
 
+
     //if user enter "quit", exit program
-    if(strcmp("quit",temp[0]) == 0){
-      exit(0);
+    if(strcmp(temp[0],"quit\n") == 0){
+        exit(0);
     }
 
 
@@ -50,7 +51,19 @@ int main(){
         //we eliminate the "\n" at the end
         strtok(bin,"\n");
         //execute the command
-        execl(bin,buffer,NULL);
+        int result = execl(bin,buffer,NULL);
+
+
+        if(result < 0){
+          //handle wrong input
+          switch (errno) {
+            default: {
+              printf("wrong input\n");
+              exit(0);
+            }
+          }
+        }
+
       }
       // wait all children
       waitpid(-1,NULL,0);
