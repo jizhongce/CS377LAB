@@ -3,6 +3,8 @@ zhongce ji: 28551884
 yucheng lu: 28411887
 
 
+Makefile: for compiling all files
+
 part1:
   1.use fork(),sleep() and waitpid().
   2.check if fork() == 0 to determine whether it's child or not.
