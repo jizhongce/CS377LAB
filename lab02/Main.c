@@ -52,7 +52,6 @@ void *Consumer_funciton(void* input){
 
       //processing
       while(length>0){
-          sleep(5);
           curr_time++;
           length--;
       }
@@ -73,10 +72,6 @@ void* Producer_function(void* input){
   while (count <= MAX_QEQUEST) {
     //access to buffer
 
-      if(sem_trywait(&empty))
-          printf("The array is full, Producer stops Producing\n");
-
-          
       sem_wait(&empty);
       sem_wait(&mutex);
 
