@@ -1,4 +1,4 @@
 
 
 Main: Main.c
-		gcc  Main.c -o Main -lpthread
+		gcc -std=c99 Main.c -o Main -lpthread

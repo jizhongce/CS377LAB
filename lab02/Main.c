@@ -5,6 +5,7 @@
 #include <semaphore.h>
 #include <unistd.h>
 #define MAX_QEQUEST 10
+#define MAX_total 20
 
 
 
@@ -48,18 +49,34 @@ void *Consumer_funciton(void* input){
       sem_post(&mutex);
       sem_post(&empty);
 
-      printf("Consumer %li: , processing request %i, processing for next %i seconds, current time is %i\n", (long)input,ID, length, curr_time);
+
+        time_t current_time;
+
+        current_time = time(NULL);
+
+        char* string;
+
+        string = ctime(&current_time);
+      printf("Consumer %li: processing request %i, processing for next %i seconds, current time is %s\n", (long)input,ID, length, string);
 
       //processing
       while(length>0){
+          sleep(1);
           curr_time++;
           length--;
       }
 
 
+      time_t current_time2;
+
+        current_time2 = time(NULL);
+
+        char* string2;
+
+        string2 = ctime(&current_time2);
 
       printf("\n\n---------------------------------\n");
-      printf("Consumer %li, Completed request ID %i, at time %i\n", (long)input,ID, curr_time);
+      printf("Consumer %li, Completed request ID %i, at time %s\n", (long)input,ID, string2);
       printf("---------------------------------\n\n");
 
   }
@@ -69,7 +86,7 @@ void *Consumer_funciton(void* input){
 void* Producer_function(void* input){
 
 
-  while (count <= MAX_QEQUEST) {
+  while (1) {
     //access to buffer
 
       sem_wait(&empty);
@@ -80,15 +97,22 @@ void* Producer_function(void* input){
       Request* tmp = REQUEST_ARR[count];
       tmp->ID = r_count;
       tmp->length = length;
-      printf("Producer: Producing request %i, length %i seconds at time %i\n", tmp->ID,tmp->length,curr_time);
+      time_t current_time3;
+
+        current_time3 = time(NULL);
+
+        char* string3;
+
+        string3 = ctime(&current_time3);
+      printf("Producer: Producing request %i, length %i seconds at time %s\n", tmp->ID,tmp->length,string3);
       count++;
       r_count++;
       printf("\n-----------------------------------------Producer: sleeping for %li s\n\n",(long)input);
       sleep(1);
 
+
       sem_post(&mutex);
       sem_post(&full);
-
 
   }
 
@@ -97,6 +121,7 @@ void* Producer_function(void* input){
 
 void Consumer(int n, pthread_t input[]){
   for(int i=0; i<n; i++){
+
     pthread_create(&input[i], NULL, Consumer_funciton, (void*)i);
   }
   for(int i=0; i<n; i++){
@@ -136,8 +161,8 @@ int main(int argc, char const *argv[]) {
 
   // producer
 
-pthread_t a[1];
-Producer(a,1);
+  pthread_t a[1];
+  Producer(a,1);
 
 
 
