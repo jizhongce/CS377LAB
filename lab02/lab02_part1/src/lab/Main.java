@@ -5,6 +5,7 @@ public class Main {
 		Round_Robin rr = new Round_Robin();
 		First_Come_First_Serve fcfs = new First_Come_First_Serve();
 		
+		//run the 10 traces files with FCFS scheduler
 		fcfs.FCFS("Traces/100-100-6.txt","100-100-6");
 		fcfs.FCFS("Traces/100-100-8.txt","100-100-8");
 		fcfs.FCFS("Traces/100-100-11.txt","100-100-11");
@@ -15,7 +16,7 @@ public class Main {
 		fcfs.FCFS("Traces/100-600-8.txt","100-600-8");
 		fcfs.FCFS("Traces/100-600-11.txt","100-600-11");
 
-		
+		//run the 10 traces files with RoundRobin scheduler
 		rr.RR("Traces/100-100-6.txt","100-100-6");
 		rr.RR("Traces/100-100-8.txt","100-100-8");
 		rr.RR("Traces/100-100-11.txt","100-100-11");
