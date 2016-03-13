@@ -2,8 +2,8 @@
 
 ## Compile
 Go to the lab02_part1 folder
-*compile: javac lab/*.java
-*run: java lab/Main
+* compile: `javac lab/*.java`
+* run: `java lab/Main`
 
 ## Design
 Our implementation of the scheduler that supports the first come first served
@@ -39,7 +39,7 @@ a job when it is completed. So the program will be running under a while loop:
 `while(curr_time <=Simulation_Time)`
 There are two scheduling algorithms:
 
-*First_Come_First_Serve
+* First_Come_First_Serve
 
 In the while loop of `First_Come_First_Serve` class, we check if there is any
 job coming at each second:
@@ -55,7 +55,7 @@ job in the readyqueue for one second. If the job is completed, we remove the job
 and start executing next job in the readyqueue. If the readyqueue is empty and
 simulation time is not reached, we simply add `current_time` by one.
 
-*Round_Robin
+* Round_Robin
 
 In the while loop of `Round_Robin` class, we check if there is any job coming at
 each second like `First_Come_First_Serve`. But after executing a job for one time
