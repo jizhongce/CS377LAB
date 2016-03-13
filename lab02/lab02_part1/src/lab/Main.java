@@ -2,6 +2,8 @@ package lab;
 
 public class Main {
 	public static void main(String[] args){
+		
+		//initialise two schedulers
 		Round_Robin rr = new Round_Robin();
 		First_Come_First_Serve fcfs = new First_Come_First_Serve();
 		

@@ -6,6 +6,9 @@ import java.util.*;
 //This class is a simulation of the First_Come_First_Serve scheluder
 public class First_Come_First_Serve {
 
+	//This is the main function of FCFS scheluder, which takes
+	//@param path, is the input file path
+	//@fileName is the fileName of the input file
 	public void FCFS(String path, String fileName){
 
 		//curr_time is the simulation of the local current time
@@ -22,6 +25,7 @@ public class First_Come_First_Serve {
 			//the second line of input file is total running time of simulaiton
 			int Simulation_Time = scanner.nextInt();
 
+			//the max length of a single job
 			int Max_length = scanner.nextInt();
 			
 			//initialize a list of jobs with their attributes
@@ -34,7 +38,6 @@ public class First_Come_First_Serve {
 				jobs[count] = newJob;
 				count++;
 			}
-			
 			
 			//initialize a readyQueue for jobs that are ready to be executed
 			Queue<Job> readyQueue = new LinkedList<>();
@@ -54,6 +57,7 @@ public class First_Come_First_Serve {
 			//Jobs will be executing till the total simulation time
 			while(curr_time <=Simulation_Time){
 				
+				//if the queue is not empty, a job will be reomved from the queue
 				if(!readyQueue.isEmpty()){
 					Job tmp = readyQueue.remove();
 					while(tmp.getLeft()!=0){
@@ -90,7 +94,7 @@ public class First_Come_First_Serve {
 			int total_waiting_time = 0;
 			int tmp =Job_Number-1;
 
-			//If any job is completed, stop that job and calculate the waiting time of that job
+			//calculate the waiting time of all the jobs
 			for (int i = 0; i < Job_Number; i++) {
 				if(jobs[i].getCompletionTime() == 0){
 					tmp = i;
