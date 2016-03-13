@@ -16,17 +16,17 @@ public Job(int total,int arrvialTime){
   this.arrvialTime = arrvialTime;
   CompletionTime = 0;
 }
-```java
+```
 We initialize a list of job called `jobs` contains all the jobs from a single
 input file. The job class has a attribute left which represents its remaining
 running and we can calculate the waiting time of a job by calculating:
 ```java
 total_wating_time += (jobs[i].getCompletionTime() - jobs[i].getArrvialTime() - jobs[i].getTotal());
-```java
+```
 and the average waiting time by:
 ```java
 int average_waiting_time = (int)total_wating_time/compeleted_jobs;
-```java
+```
 At the end of the simulation time, we calculate the waiting time for every jobs
 in the readyqueue and get the average waiting time by dividing the total waiting
 time of all the jobs by the number of jobs in the readyqueue and completed jobs.
@@ -49,7 +49,7 @@ for (Job job : jobs) {
     readyQueue.add(job);
   }
 }
-```java
+```
 We add the `current_time` by one while processing each
 job in the readyqueue for one second. If the job is completed, we remove the job
 and start executing next job in the readyqueue. If the readyqueue is empty and
