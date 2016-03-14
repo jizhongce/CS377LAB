@@ -4,6 +4,7 @@
 #include <sys/queue.h>
 #include <semaphore.h>
 #include <unistd.h>
+#include <stdint.h>
 #define MAX_QEQUEST 10
 #define MAX_total 20
 
@@ -40,6 +41,8 @@ void *Consumer_funciton(void* input){
       sem_wait(&full);//if full = 0(empty), wait
       sem_wait(&mutex);//access to buffer
 
+      //get the id of consumer
+      int id = (intptr_t) input;
       //get a request from the queue
       Request *tmp = REQUEST_ARR[count-1];
 
@@ -62,7 +65,7 @@ void *Consumer_funciton(void* input){
       string = ctime(&current_time);
 
       //When a consumer get a request, print the following line
-      printf("Consumer %li: processing request %i, processing for next %i seconds, current time is %s\n", (long)input,ID, length, string);
+      printf("Consumer %i: processing request %i, processing for next %i seconds, current time is %s\n", id,ID, length, string);
 
       //sleep 1 second represents the processing of 1 second
       while(length>0){
@@ -93,6 +96,8 @@ void* Producer_function(void* input){
       sem_wait(&empty);
       sem_wait(&mutex);
 
+      //get sleep_length
+      int sleep_length = (intptr_t)input;
       //the length of request is randomly generated from 1 to 10
       int length = (rand() % 10) +1;
       //add the request to the queue
@@ -113,7 +118,7 @@ void* Producer_function(void* input){
       count++;
       r_count++;
       //Producer will sleep for one second after producing a request
-      printf("Producer: sleeping for 1s\n\n");
+      printf("Producer: sleeping for %is\n\n",sleep_length);
       sleep(1);
 
       //release the buffer
@@ -127,7 +132,7 @@ void* Producer_function(void* input){
 //@parameter input[], is the list if threads to be created
 void Consumer(int n, pthread_t input[]){
   for(int i=0; i<n; i++){
-    pthread_create(&input[i], NULL, Consumer_funciton, (void*)i);
+    pthread_create(&input[i], NULL, Consumer_funciton, (void*)(intptr_t)i);
   }
   for(int i=0; i<n; i++){
     pthread_join(input[i], NULL);
@@ -138,8 +143,8 @@ void Consumer(int n, pthread_t input[]){
 //This method is used to create a producer object,
 //producer will sleep for 1 second after producing one request
 //@parameter input[], which is a list a p_threads
-void Producer(pthread_t input[]){
-  pthread_create(&input[0], NULL, Producer_function,NULL);
+void Producer(pthread_t input[],int sleep_length){
+  pthread_create(&input[0], NULL, Producer_function,(void*)(intptr_t)sleep_length);
 }
 
 //free the request queue
@@ -164,10 +169,10 @@ int main(int argc, char const *argv[]) {
     REQUEST_ARR[i] = r;
   }
 
-  //initialize the producer
+  //initialize the producer, the second input is the sleep length
   pthread_t a[1];
-  Producer(a);
-  //initialize the consumers
+  Producer(a,1);
+  //initialize the consumers, the first input is the number of consumers
   pthread_t b[5];
   Consumer(5,b);
 
