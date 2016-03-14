@@ -84,7 +84,7 @@ void *Consumer_funciton(void* input){
   }
 }
 
-//this is main function of simuation of a producer, which contains a 
+//this is main function of simuation of a producer, which contains a
 //while loop keeping creating jobs
 void* Producer_function(void* input){
   while (1) {
@@ -101,7 +101,7 @@ void* Producer_function(void* input){
       tmp->ID = r_count;
       tmp->length = length;
       curr_time++;
-      
+
       //get the current local time
       time_t current_time3;
       current_time3 = time(NULL);
@@ -113,7 +113,7 @@ void* Producer_function(void* input){
       count++;
       r_count++;
       //Producer will sleep for one second after producing a request
-      printf("Producer: sleeping for %li s\n\n",(long)input);
+      printf("Producer: sleeping for 1s\n\n");
       sleep(1);
 
       //release the buffer
@@ -127,7 +127,7 @@ void* Producer_function(void* input){
 //@parameter input[], is the list if threads to be created
 void Consumer(int n, pthread_t input[]){
   for(int i=0; i<n; i++){
-    pthread_create(&input[i], NULL, Consumer_funciton, (void*)&i);
+    pthread_create(&input[i], NULL, Consumer_funciton, (void*)i);
   }
   for(int i=0; i<n; i++){
     pthread_join(input[i], NULL);
@@ -135,11 +135,11 @@ void Consumer(int n, pthread_t input[]){
 
 }
 
-//This method is used to create a producer object
+//This method is used to create a producer object,
+//producer will sleep for 1 second after producing one request
 //@parameter input[], which is a list a p_threads
-//@parameter sleep_length, which is the time for sleep after production
-void Producer(pthread_t input[], int sleep_length){
-  pthread_create(&input[0], NULL, Producer_function, (void*)&sleep_length);
+void Producer(pthread_t input[]){
+  pthread_create(&input[0], NULL, Producer_function,NULL);
 }
 
 //free the request queue
@@ -166,7 +166,7 @@ int main(int argc, char const *argv[]) {
 
   //initialize the producer
   pthread_t a[1];
-  Producer(a,1);
+  Producer(a);
   //initialize the consumers
   pthread_t b[5];
   Consumer(5,b);
