@@ -31,7 +31,9 @@ sem_t empty;
 sem_t full;
 
 
-
+//this is the main function of the simulation of what a consumer
+//is doing. It contains a while loop keeping accepting jobs and
+//executing them.
 void *Consumer_funciton(void* input){
 
   while (1) {
@@ -82,6 +84,8 @@ void *Consumer_funciton(void* input){
   }
 }
 
+//this is main function of simuation of a producer, which contains a 
+//while loop keeping creating jobs
 void* Producer_function(void* input){
   while (1) {
 
@@ -119,11 +123,11 @@ void* Producer_function(void* input){
 }
 
 //This method is used to create a list of consumer objects and initialise them
-//with parameter n, which is the number of consumers
-//and parameter input[], is the list if threads to be created
+//@parameter n, which is the number of consumers
+//@parameter input[], is the list if threads to be created
 void Consumer(int n, pthread_t input[]){
   for(int i=0; i<n; i++){
-    pthread_create(&input[i], NULL, Consumer_funciton, (void*)i);
+    pthread_create(&input[i], NULL, Consumer_funciton, (void*)&i);
   }
   for(int i=0; i<n; i++){
     pthread_join(input[i], NULL);
@@ -132,10 +136,10 @@ void Consumer(int n, pthread_t input[]){
 }
 
 //This method is used to create a producer object
-//with parameter input[], which is a list a p_threads
-//and parameter sleep_length, which is the time for sleep after production
+//@parameter input[], which is a list a p_threads
+//@parameter sleep_length, which is the time for sleep after production
 void Producer(pthread_t input[], int sleep_length){
-  pthread_create(&input[0], NULL, Producer_function, (void*)sleep_length);
+  pthread_create(&input[0], NULL, Producer_function, (void*)&sleep_length);
 }
 
 //free the request queue

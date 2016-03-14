@@ -1,0 +1,221 @@
+Producer: Producing request 0, length 4 seconds at time Mon Mar 14 12:07:00 2016
+
+Producer: sleeping for 1 s
+
+Producer: Producing request 1, length 7 seconds at time Mon Mar 14 12:07:01 2016
+
+Producer: sleeping for 1 s
+
+Producer: Producing request 2, length 8 seconds at time Mon Mar 14 12:07:02 2016
+
+Producer: sleeping for 1 s
+
+Producer: Producing request 3, length 6 seconds at time Mon Mar 14 12:07:03 2016
+
+Producer: sleeping for 1 s
+
+Producer: Producing request 4, length 4 seconds at time Mon Mar 14 12:07:04 2016
+
+Producer: sleeping for 1 s
+
+Producer: Producing request 5, length 6 seconds at time Mon Mar 14 12:07:05 2016
+
+Producer: sleeping for 1 s
+
+Producer: Producing request 6, length 7 seconds at time Mon Mar 14 12:07:06 2016
+
+Producer: sleeping for 1 s
+
+Producer: Producing request 7, length 3 seconds at time Mon Mar 14 12:07:07 2016
+
+Producer: sleeping for 1 s
+
+Producer: Producing request 8, length 10 seconds at time Mon Mar 14 12:07:08 2016
+
+Producer: sleeping for 1 s
+
+Producer: Producing request 9, length 2 seconds at time Mon Mar 14 12:07:09 2016
+
+Producer: sleeping for 1 s
+
+Consumer 4: processing request 9, processing for next 2 seconds, current time is Mon Mar 14 12:07:10 2016
+
+Consumer 0: processing request 8, processing for next 10 seconds, current time is Mon Mar 14 12:07:10 2016
+
+Consumer 3: processing request 7, processing for next 3 seconds, current time is Mon Mar 14 12:07:10 2016
+
+Consumer 1: processing request 6, processing for next 7 seconds, current time is Mon Mar 14 12:07:10 2016
+
+Consumer 2: processing request 5, processing for next 6 seconds, current time is Mon Mar 14 12:07:10 2016
+
+Producer: Producing request 10, length 3 seconds at time Mon Mar 14 12:07:10 2016
+
+Producer: sleeping for 1 s
+
+Producer: Producing request 11, length 8 seconds at time Mon Mar 14 12:07:11 2016
+
+Producer: sleeping for 1 s
+
+
+
+----------------------------------------
+Consumer 4, Completed request ID 9, at time Mon Mar 14 12:07:12 2016
+
+----------------------------------------
+
+Producer: Producing request 12, length 1 seconds at time Mon Mar 14 12:07:12 2016
+
+Producer: sleeping for 1 s
+
+
+
+----------------------------------------
+Consumer 3, Completed request ID 7, at time Mon Mar 14 12:07:13 2016
+
+----------------------------------------
+
+Producer: Producing request 13, length 10 seconds at time Mon Mar 14 12:07:13 2016
+
+Producer: sleeping for 1 s
+
+Producer: Producing request 14, length 4 seconds at time Mon Mar 14 12:07:14 2016
+
+Producer: sleeping for 1 s
+
+Consumer 3: processing request 13, processing for next 10 seconds, current time is Mon Mar 14 12:07:15 2016
+
+Consumer 4: processing request 14, processing for next 4 seconds, current time is Mon Mar 14 12:07:15 2016
+
+Producer: Producing request 15, length 7 seconds at time Mon Mar 14 12:07:15 2016
+
+Producer: sleeping for 1 s
+
+
+
+----------------------------------------
+Consumer 2, Completed request ID 5, at time Mon Mar 14 12:07:16 2016
+
+----------------------------------------
+
+Producer: Producing request 16, length 1 seconds at time Mon Mar 14 12:07:16 2016
+
+Producer: sleeping for 1 s
+
+
+
+----------------------------------------
+Consumer 1, Completed request ID 6, at time Mon Mar 14 12:07:17 2016
+
+----------------------------------------
+
+Consumer 2: processing request 16, processing for next 1 seconds, current time is Mon Mar 14 12:07:17 2016
+
+Producer: Producing request 17, length 7 seconds at time Mon Mar 14 12:07:17 2016
+
+Producer: sleeping for 1 s
+
+
+
+----------------------------------------
+Consumer 2, Completed request ID 16, at time Mon Mar 14 12:07:18 2016
+
+----------------------------------------
+
+Consumer 1: processing request 17, processing for next 7 seconds, current time is Mon Mar 14 12:07:18 2016
+
+Producer: Producing request 18, length 3 seconds at time Mon Mar 14 12:07:18 2016
+
+Producer: sleeping for 1 s
+
+
+
+----------------------------------------
+Consumer 4, Completed request ID 14, at time Mon Mar 14 12:07:19 2016
+
+----------------------------------------
+
+Producer: Producing request 19, length 7 seconds at time Mon Mar 14 12:07:19 2016
+
+Producer: sleeping for 1 s
+
+Consumer 2: processing request 18, processing for next 3 seconds, current time is Mon Mar 14 12:07:19 2016
+
+
+
+----------------------------------------
+Consumer 0, Completed request ID 8, at time Mon Mar 14 12:07:20 2016
+
+----------------------------------------
+
+Consumer 4: processing request 19, processing for next 7 seconds, current time is Mon Mar 14 12:07:20 2016
+
+Producer: Producing request 20, length 2 seconds at time Mon Mar 14 12:07:20 2016
+
+Producer: sleeping for 1 s
+
+Consumer 0: processing request 20, processing for next 2 seconds, current time is Mon Mar 14 12:07:21 2016
+
+Producer: Producing request 21, length 9 seconds at time Mon Mar 14 12:07:21 2016
+
+Producer: sleeping for 1 s
+
+
+
+----------------------------------------
+Consumer 2, Completed request ID 18, at time Mon Mar 14 12:07:22 2016
+
+----------------------------------------
+
+Consumer 2: processing request 21, processing for next 9 seconds, current time is Mon Mar 14 12:07:22 2016
+
+Producer: Producing request 22, length 8 seconds at time Mon Mar 14 12:07:22 2016
+
+Producer: sleeping for 1 s
+
+
+
+----------------------------------------
+Consumer 0, Completed request ID 20, at time Mon Mar 14 12:07:23 2016
+
+----------------------------------------
+
+Consumer 0: processing request 22, processing for next 8 seconds, current time is Mon Mar 14 12:07:23 2016
+
+Producer: Producing request 23, length 10 seconds at time Mon Mar 14 12:07:23 2016
+
+Producer: sleeping for 1 s
+
+
+
+----------------------------------------
+Consumer 1, Completed request ID 17, at time Mon Mar 14 12:07:25 2016
+
+----------------------------------------
+
+Consumer 1: processing request 23, processing for next 10 seconds, current time is Mon Mar 14 12:07:25 2016
+
+Producer: Producing request 24, length 3 seconds at time Mon Mar 14 12:07:25 2016
+
+Producer: sleeping for 1 s
+
+
+
+----------------------------------------
+Consumer 3, Completed request ID 13, at time Mon Mar 14 12:07:25 2016
+
+----------------------------------------
+
+Consumer 3: processing request 24, processing for next 3 seconds, current time is Mon Mar 14 12:07:26 2016
+
+Producer: Producing request 25, length 1 seconds at time Mon Mar 14 12:07:26 2016
+
+Producer: sleeping for 1 s
+
+
+
+----------------------------------------
+Consumer 4, Completed request ID 19, at time Mon Mar 14 12:07:27 2016
+
+----------------------------------------
+
+
