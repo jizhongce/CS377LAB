@@ -3,7 +3,7 @@ package monitor;
 
 /***
  * 
- * @author shengbo lou zhongce ji yucheng lu 
+ * @author shengbo lou, zhongce ji, yucheng lu 
  *
  *	Main class
  */
