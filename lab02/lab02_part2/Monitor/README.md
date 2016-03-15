@@ -52,21 +52,21 @@ This file is the implementation of the producer. There is a class called Produce
     queRequests: Queue<Request>, this will represent the queue of the request.
 
   Then we have a constructor which takes three arguments:<br> 
-  *  Input: represent max number of requests we will create and we will assign it to MAX_REQUEST. 
-  *  sleep_time: represent the time the producer will sleep after creating a new request, and we will assign it to sleep_time.
-  *  max: this will represent the max number of requests in total so we can assign it to max
+  *  <strong>Input</strong>: represent max number of requests we will create and we will assign it to MAX_REQUEST. 
+  *  <strong>sleep_time</strong>: represent the time the producer will sleep after creating a new request, and we will assign it to sleep_time.
+  *  <strong>max</strong>: this will represent the max number of requests in total so we can assign it to max
   Then we Override the run function and in this function, we have a while loop, if the total_count is less than max
   which means the queue is not full so we put the request in the queue and increase the total_count and count.
   
   
 And also we have some synchronized method:
 
-* putRequest: This method is void. In the function, first we will check whether the queue is full, if it is full,
+* <strong>putRequest</strong>: This method is void. In the function, first we will check whether the queue is full, if it is full,
   we will wait, if not we will create a new request and give the id which is total_count, then we add the request
   in the queue.Then we get new real time of the machine, then print out the output of the program. After that we
   will sleep the producer for the sleep_time. Then we notify other waiting threads.
 
-* getRequest: This method will return Request type. In the function first we will create the request, and then notify
+* <strong>getRequest<strong>: This method will return Request type. In the function first we will create the request, and then notify
   the waiting thread. if the queue is empty then we need to wait. Then after check those things, we will take the
   first request from the request queue, then we decrease the count because one of the request is out. then we get
   the length of the request by call length method of request. After that we get the real time of the machine and print
