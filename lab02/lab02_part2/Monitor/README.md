@@ -47,17 +47,17 @@ This file is the implementation of the producer. There is a class called Produce
   
   * <strong>MAX_REQUEST</strong>: int, this will represent the max number of requests in the queue
   * <strong>sleep_time</strong>: int , this will represent the time for producer to sleep after creating a request. This is also final variable so that we can not change it
-  * <strong>total_count<strong>: int, this will represent the count for requests in total. This is also final variable so that we can not change it
-  * <strong>count<strong>: int, this will represent the count for requests in total
-  * <strong>max<strong>: int, this will represent the max number of requests in total
-  * <strong>queRequests<strong>: Queue<Request>, this will represent the queue of the request.
+  * <strong>total_count</strong>: int, this will represent the count for requests in total. This is also final variable so that we can not change it
+  * <strong>count</strong>: int, this will represent the count for requests in total
+  * <strong>max</strong>: int, this will represent the max number of requests in total
+  * <strong>queRequests</strong>: Queue<Request>, this will represent the queue of the request.
 
   Then we have a constructor which takes three arguments:<br> 
-  *  <strong>Input</strong>: represent max number of requests we will create and we will assign it to MAX_REQUEST. 
-  *  <strong>sleep_time</strong>: represent the time the producer will sleep after creating a new request, and we will assign it to sleep_time.
-  *  <strong>max</strong>: this will represent the max number of requests in total so we can assign it to max
+  * <strong>Input</strong>: represent max number of requests we will create and we will assign it to MAX_REQUEST. 
+  * <strong>sleep-time</strong>: represent the time the producer will sleep after creating a new request, and we will assign it to sleep_time.
+  * <strong>max</strong>: this will represent the max number of requests in total so we can assign it to max
   Then we Override the run function and in this function, we have a while loop, if the total_count is less than max
-  which means the queue is not full so we put the request in the queue and increase the total_count and count.
+  which means the queue is not full so we put the request in the queue and increase the total-count and count.
   
   
 And also we have some synchronized method:
