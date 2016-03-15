@@ -4,7 +4,10 @@ package monitor;
  * Request class
  */
 public class Request {
+	
+	//the id of request
 	int ID;
+	//the length of request
 	int length;
 	
 	public Request(int ID) {

@@ -7,7 +7,10 @@ import java.util.*;
  * Consumer class
  */
 public class Consumer extends Thread{
+
+	//ID is the id of the Consumer
 	int ID;
+	//producer of an instance of the Producer object
 	private Producer producer;
 	
 	
@@ -19,7 +22,6 @@ public class Consumer extends Thread{
 	@Override
 	public void run() {
 		try {
-
 			while (true) {
 				int ID = this.ID;
 				// get the request

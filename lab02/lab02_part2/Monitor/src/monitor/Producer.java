@@ -21,7 +21,10 @@ public class Producer extends Thread{
 	private Queue<Request> queRequests = new LinkedList<Request>();
 
 	
-	//constructor
+	//this is the constructor of the Producer class, there are three parameter
+	//@param input, is the the maximum number of requsets in the queue
+	//@param sleep_time, is length of sleeptime after production
+	//@param max is the total number of requests in total
 	public Producer(int input, int sleep_time, int max){
 		MAX_REQUEST = input;
 		this.sleep_time = sleep_time;
@@ -29,9 +32,9 @@ public class Producer extends Thread{
 	}
 	
 	
-	@Override
+	//this void function contains a while loop that checks if queue
+	//is full, if it is not then add request to queue
 	public void run() {
-	
 			//while loop only runs when number of requests less than the max
 			while(total_count < max){
 				//put the request to queue
@@ -69,7 +72,10 @@ public class Producer extends Thread{
 		}
 	}
 	
-	//create consumers
+	//THis method is used to create a list of consumer
+	//@param input, is the number of consumers
+	//@param producer, producer is the producer of the program
+	//@return, a list a consumers
 	public Consumer[] consumer(int input,Producer producer) {
 		Consumer[] consumers = new Consumer[input];
 		for (int i = 0; i < input; i++) {
@@ -82,16 +88,19 @@ public class Producer extends Thread{
 	}
 	
 	//synchronized method for getting the requests from queue
+	//@param, ID is the id of the consumer
+	//@return, the requestion assigned to the consumer
 	public synchronized Request getRequest(int ID){
-		Request request = null;
 		
+		//initilize a request
+		Request request = null;
 		try {
 			notifyAll();
 			//if the queue is empty, wait
 			while(count == 0){
 				wait();
 			}
-			//else get the request
+			//else assign the request to the consumer
 			Request tmp = queRequests.remove();
 			request = tmp;
 			count--;
