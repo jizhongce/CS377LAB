@@ -1,7 +1,7 @@
 # Part 2 java monitor
 
 <br>
-## Team Member:
+## Team Members:
 shengbo lou: 28530995<br>
 zhongce ji: 28551884<br>
 yucheng lu: 28411887
