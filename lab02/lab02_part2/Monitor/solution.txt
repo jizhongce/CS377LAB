@@ -1,0 +1,199 @@
+Producer: Producing Request 0 length 2 at Tue Mar 15 16:11:23 EDT 2016
+Producer: sleeping for next 1s
+----------------------------------------------
+
+Producer: Producing Request 1 length 2 at Tue Mar 15 16:11:24 EDT 2016
+Producer: sleeping for next 1s
+----------------------------------------------
+
+Producer: Producing Request 2 length 4 at Tue Mar 15 16:11:25 EDT 2016
+Producer: sleeping for next 1s
+----------------------------------------------
+
+Producer: Producing Request 3 length 3 at Tue Mar 15 16:11:26 EDT 2016
+Producer: sleeping for next 1s
+----------------------------------------------
+
+Producer: Producing Request 4 length 5 at Tue Mar 15 16:11:27 EDT 2016
+Producer: sleeping for next 1s
+----------------------------------------------
+
+Producer: Producing Request 5 length 3 at Tue Mar 15 16:11:28 EDT 2016
+Producer: sleeping for next 1s
+----------------------------------------------
+
+Producer: Producing Request 6 length 2 at Tue Mar 15 16:11:29 EDT 2016
+Producer: sleeping for next 1s
+----------------------------------------------
+
+Producer: Producing Request 7 length 4 at Tue Mar 15 16:11:30 EDT 2016
+Producer: sleeping for next 1s
+----------------------------------------------
+
+Producer: Producing Request 8 length 1 at Tue Mar 15 16:11:31 EDT 2016
+Producer: sleeping for next 1s
+----------------------------------------------
+
+Producer: Producing Request 9 length 4 at Tue Mar 15 16:11:32 EDT 2016
+Producer: sleeping for next 1s
+----------------------------------------------
+
+Consumer 4: Assigned request 0 for next 2 seconds. Current time is Tue Mar 15 16:11:33 EDT 2016
+====================================================
+
+Consumer 3: Assigned request 1 for next 2 seconds. Current time is Tue Mar 15 16:11:33 EDT 2016
+====================================================
+
+Consumer 2: Assigned request 2 for next 4 seconds. Current time is Tue Mar 15 16:11:33 EDT 2016
+====================================================
+
+Consumer 1: Assigned request 3 for next 3 seconds. Current time is Tue Mar 15 16:11:33 EDT 2016
+====================================================
+
+Consumer 0: Assigned request 4 for next 5 seconds. Current time is Tue Mar 15 16:11:33 EDT 2016
+====================================================
+
+Producer: Producing Request 10 length 3 at Tue Mar 15 16:11:33 EDT 2016
+Producer: sleeping for next 1s
+----------------------------------------------
+
+Producer: Producing Request 11 length 2 at Tue Mar 15 16:11:34 EDT 2016
+Producer: sleeping for next 1s
+----------------------------------------------
+
+Producer: Producing Request 12 length 1 at Tue Mar 15 16:11:35 EDT 2016
+Producer: sleeping for next 1s
+----------------------------------------------
+
+Consumer 3: Compeleted request 1 at time Tue Mar 15 16:11:35 EDT 2016
+====================================================
+
+Consumer 4: Compeleted request 0 at time Tue Mar 15 16:11:35 EDT 2016
+====================================================
+
+Consumer 1: Compeleted request 3 at time Tue Mar 15 16:11:36 EDT 2016
+====================================================
+
+Producer: Producing Request 13 length 3 at Tue Mar 15 16:11:36 EDT 2016
+Producer: sleeping for next 1s
+----------------------------------------------
+
+Consumer 2: Compeleted request 2 at time Tue Mar 15 16:11:37 EDT 2016
+====================================================
+
+Producer: Producing Request 14 length 4 at Tue Mar 15 16:11:37 EDT 2016
+Producer: sleeping for next 1s
+----------------------------------------------
+
+Consumer 4: Assigned request 5 for next 3 seconds. Current time is Tue Mar 15 16:11:38 EDT 2016
+====================================================
+
+Consumer 0: Compeleted request 4 at time Tue Mar 15 16:11:38 EDT 2016
+====================================================
+
+Consumer 3: Assigned request 6 for next 2 seconds. Current time is Tue Mar 15 16:11:38 EDT 2016
+====================================================
+
+Consumer 0: Assigned request 7 for next 4 seconds. Current time is Tue Mar 15 16:11:38 EDT 2016
+====================================================
+
+Producer: Producing Request 15 length 2 at Tue Mar 15 16:11:38 EDT 2016
+Producer: sleeping for next 1s
+----------------------------------------------
+
+Producer: Producing Request 16 length 2 at Tue Mar 15 16:11:39 EDT 2016
+Producer: sleeping for next 1s
+----------------------------------------------
+
+Consumer 2: Assigned request 8 for next 1 seconds. Current time is Tue Mar 15 16:11:40 EDT 2016
+====================================================
+
+Consumer 3: Compeleted request 6 at time Tue Mar 15 16:11:40 EDT 2016
+====================================================
+
+Consumer 1: Assigned request 9 for next 4 seconds. Current time is Tue Mar 15 16:11:40 EDT 2016
+====================================================
+
+Consumer 3: Assigned request 10 for next 3 seconds. Current time is Tue Mar 15 16:11:40 EDT 2016
+====================================================
+
+Producer: Producing Request 17 length 2 at Tue Mar 15 16:11:40 EDT 2016
+Producer: sleeping for next 1s
+----------------------------------------------
+
+Consumer 4: Compeleted request 5 at time Tue Mar 15 16:11:41 EDT 2016
+====================================================
+
+Producer: Producing Request 18 length 2 at Tue Mar 15 16:11:41 EDT 2016
+Producer: sleeping for next 1s
+----------------------------------------------
+
+Consumer 2: Compeleted request 8 at time Tue Mar 15 16:11:41 EDT 2016
+====================================================
+
+Consumer 0: Compeleted request 7 at time Tue Mar 15 16:11:42 EDT 2016
+====================================================
+
+Producer: Producing Request 19 length 3 at Tue Mar 15 16:11:42 EDT 2016
+Producer: sleeping for next 1s
+----------------------------------------------
+
+Consumer 3: Compeleted request 10 at time Tue Mar 15 16:11:43 EDT 2016
+====================================================
+
+Consumer 2: Assigned request 11 for next 2 seconds. Current time is Tue Mar 15 16:11:43 EDT 2016
+====================================================
+
+Consumer 4: Assigned request 12 for next 1 seconds. Current time is Tue Mar 15 16:11:43 EDT 2016
+====================================================
+
+Consumer 3: Assigned request 13 for next 3 seconds. Current time is Tue Mar 15 16:11:43 EDT 2016
+====================================================
+
+Consumer 0: Assigned request 14 for next 4 seconds. Current time is Tue Mar 15 16:11:43 EDT 2016
+====================================================
+
+Consumer 1: Compeleted request 9 at time Tue Mar 15 16:11:44 EDT 2016
+====================================================
+
+Consumer 4: Compeleted request 12 at time Tue Mar 15 16:11:44 EDT 2016
+Consumer 1: Assigned request 15 for next 2 seconds. Current time is Tue Mar 15 16:11:44 EDT 2016
+====================================================
+
+====================================================
+
+Consumer 4: Assigned request 16 for next 2 seconds. Current time is Tue Mar 15 16:11:44 EDT 2016
+====================================================
+
+Consumer 2: Compeleted request 11 at time Tue Mar 15 16:11:45 EDT 2016
+====================================================
+
+Consumer 2: Assigned request 17 for next 2 seconds. Current time is Tue Mar 15 16:11:45 EDT 2016
+====================================================
+
+Consumer 3: Compeleted request 13 at time Tue Mar 15 16:11:46 EDT 2016
+====================================================
+
+Consumer 4: Compeleted request 16 at time Tue Mar 15 16:11:46 EDT 2016
+====================================================
+
+Consumer 1: Compeleted request 15 at time Tue Mar 15 16:11:46 EDT 2016
+====================================================
+
+Consumer 3: Assigned request 18 for next 2 seconds. Current time is Tue Mar 15 16:11:46 EDT 2016
+====================================================
+
+Consumer 1: Assigned request 19 for next 3 seconds. Current time is Tue Mar 15 16:11:46 EDT 2016
+====================================================
+
+Consumer 0: Compeleted request 14 at time Tue Mar 15 16:11:47 EDT 2016
+====================================================
+
+Consumer 2: Compeleted request 17 at time Tue Mar 15 16:11:47 EDT 2016
+====================================================
+
+Consumer 3: Compeleted request 18 at time Tue Mar 15 16:11:48 EDT 2016
+====================================================
+
+Consumer 1: Compeleted request 19 at time Tue Mar 15 16:11:49 EDT 2016
+====================================================
