@@ -1,8 +1,8 @@
 # Part2-Task1
 
 ## Team Member
-shengbo lou: 28530995
-zhongce ji: 28551884
+shengbo lou: 28530995<br>
+zhongce ji: 28551884<br>
 yucheng lu: 28411887
 
 ## Compile
