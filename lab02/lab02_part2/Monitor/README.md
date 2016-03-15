@@ -52,9 +52,9 @@ This file is the implementation of the producer. There is a class called Produce
     queRequests: Queue<Request>, this will represent the queue of the request.
 
   Then we have a constructor which takes three arguments:<br> 
-  *  First one is input which will represent max number of requests we will create and we will assign it to MAX_REQUEST. 
-  *  Second is called sleep_time, which will represent the time the producer will sleep after creating a new request, and we will assign it to sleep_time.
-  *  The third one is called max, this will represent the max number of requests in total so we can assign it to max
+  *  Input: represent max number of requests we will create and we will assign it to MAX_REQUEST. 
+  *  sleep_time: represent the time the producer will sleep after creating a new request, and we will assign it to sleep_time.
+  *  max: this will represent the max number of requests in total so we can assign it to max
   Then we Override the run function and in this function, we have a while loop, if the total_count is less than max
   which means the queue is not full so we put the request in the queue and increase the total_count and count.
   
