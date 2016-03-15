@@ -9,13 +9,13 @@ use eclipse or javac
 ##run: 
 ./Main
 
-
+##Description:
   This is the second part of the lab2, here we will use monitor to do the same program as the
   Semaphores will do. In this part we will use java to implement this part. We are requested to
   have one producer and many consumers. And the producer will produce the requests, and consumers
   will get the requests, and execute the requests.
 
-###Request.java: 
+####Request.java: 
   This file have a class which is called Request, this class have constructor
   which will take one argument which is called ID, and this will represent the id of the request.
   We will use this class to create the requests. Then we have length and ID variables:
@@ -28,7 +28,7 @@ use eclipse or javac
     length(): This will return the length of the request, in the function, 
     we use the Random to create the random length of the   request.
 
-###Consumer.java: 
+####Consumer.java: 
   This file will implement the consumer, in this consumer class, there is constructor
   which will take two arguments, one is ID which will represents the ID of the consumer, the other one
   is producer, which will produce the request for this consumer. And the class consumer will extends Thread
@@ -36,7 +36,7 @@ use eclipse or javac
   the ID and assign it to this consumer thread, the we use producer's getRequest to get the request, then process the
   request, finally we print out the output of the programs with the real time of the machine.
 
-###Producer.java: 
+####Producer.java: 
 This file will implement the producer. There is a class called Producer which will extends
   Threads, so that the producer can be the thread. In this class, we have some arguments which are private
   so that other class may not access it. The variables:
@@ -72,7 +72,7 @@ This file will implement the producer. There is a class called Producer which wi
   and producer is the producer which will produce the request for the consumer. In the method, we will create an array, and
   then we use a for loop to create consumers and put each new consumer in the array. Then we will return the consumer array.
 
-###Main.java: 
+####Main.java: 
 This file have a main class where we will create producer to run the whole program. In the main function, first we
   create new producer which will take 10,1000,20 as input, 10 is max requests number in the queue, 1000 means 1 second for
   each sleep, 20 means 20 max requests in total. Then we run the producer, and then we use consumer to create 5 consumers. 
