@@ -23,13 +23,14 @@ Main class
   which takes one argument which is ID, and this will represent the id of the request.
   We will use this class to create the requests. Then we have length and ID variables:
   
-    length: This will be the length of the requests, it's a random variable
-    ID: This represents the id of the requests.
-    
-  There is also one method:<br>
+  * <strong>length</strong>: This will be the length of the requests, it's a random variable
+  * <strong>ID</strong>: This represents the id of the requests.
   
-    length(): This will return the length of the request, in the function, 
-    we use the Random to create the random length of the request.
+
+There is also one method:<br>
+  
+  * <strong>length()</strong>: This will return the length of the request, in the function, 
+  we use the Random to create the random length of the request.
 
 ####Consumer.java: 
   This file is the implementation of consumer, there is a constructor
