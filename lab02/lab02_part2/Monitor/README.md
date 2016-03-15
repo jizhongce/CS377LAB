@@ -72,7 +72,9 @@ And also we have some synchronized method:
   the length of the request by call length method of request. After that we get the real time of the machine and print
   out the output of the program.
 
-  Then we have a method called consumer which will return the array of the consumer. This method is not synchronized.
+  
+  
+Then we have a method called consumer which will return the array of the consumer. This method is not synchronized.
   This method will take two arguments which are input and producer. The input will indicates how many consumers we will have
   and producer is the producer which will produce the request for the consumer. In the method, we will create an array, and
   then we use a for loop to create consumers and put each new consumer in the array. Then we will return the consumer array.
