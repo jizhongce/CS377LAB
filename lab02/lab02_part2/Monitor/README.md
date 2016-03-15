@@ -1,24 +1,24 @@
-#Part 2 java monitor
+# Part 2 java monitor
 
 <br>
-##Team Member:
+## Team Member:
 shengbo lou: 28530995<br>
 zhongce ji: 28551884<br>
 yucheng lu: 28411887
 
-##Compile: 
+## Compile: 
 use eclipse or javac
 
-##Run: 
+## Run: 
 Main class
 
-##Description:
+## Description:
   This is the second part of the lab2, here we will use monitor to do the same program as the
   Semaphores will do. In this part we will use java to implement. We are requested to
   have one producer and multiple consumers. The producer will produce the requests, and consumers
   will get the requests and execute them.
 
-####Request.java: 
+#### Request.java: 
   This file contains a class called Request, this class has a constructor
   which takes one argument which is ID, and this will represent the id of the request.
   We will use this class to create the requests. Then we have length and ID variables:
@@ -32,7 +32,7 @@ There is also one method:<br>
   * <strong>length()</strong>: This will return the length of the request, in the function, 
   we use the Random to create the random length of the request.
 
-####Consumer.java: 
+#### Consumer.java: 
   This file is the implementation of consumer, there is a constructor
   which takes two arguments: one is ID which will represents the ID of the consumer, the other one
   is producer, which will produce the request for this consumer. 
@@ -40,17 +40,17 @@ There is also one method:<br>
   the ID and assign it to this consumer thread, the we use producer's getRequest fucntion to get the request, then process the
   request, finally we print out the output of the programs with the real time of the machine.
 
-####Producer.java: 
+#### Producer.java: 
 This file is the implementation of the producer. There is a class called Producer which extends
   Threads, so that the producer can be the thread. In this class, we have some arguments which are private
   so that other class may not access it. The variables:
   
-    MAX_REQUEST: int, this will represent the max number of requests in the queue
-    sleep_time: int , this will represent the time for producer to sleep after creating a request. This is also final variable so that we can not change it
-    total_count: int, this will represent the count for requests in total. This is also final variable so that we can not change it
-    count: int, this will represent the count for requests in total
-    max: int, this will represent the max number of requests in total
-    queRequests: Queue<Request>, this will represent the queue of the request.
+  * <strong>MAX_REQUEST</strong>: int, this will represent the max number of requests in the queue
+  * <strong>sleep_time</strong>: int , this will represent the time for producer to sleep after creating a request. This is also final variable so that we can not change it
+  * <strong>total_count<strong>: int, this will represent the count for requests in total. This is also final variable so that we can not change it
+  * <strong>count<strong>: int, this will represent the count for requests in total
+  * <strong>max<strong>: int, this will represent the max number of requests in total
+  * <strong>queRequests<strong>: Queue<Request>, this will represent the queue of the request.
 
   Then we have a constructor which takes three arguments:<br> 
   *  <strong>Input</strong>: represent max number of requests we will create and we will assign it to MAX_REQUEST. 
@@ -80,7 +80,7 @@ Then we have a method called consumer which will return the array of the consume
   and producer is the producer which will produce the request for the consumer. In the method, we will create an array, and
   then we use a for loop to create consumers and put each new consumer in the array. Then we will return the consumer array.
 
-####Main.java: 
+#### Main.java: 
 This file have a main class where we will create producer to run the whole program. In the main function, first we
   create new producer which will take 10,1000,20 as input, 10 is max requests number in the queue, 1000 means 1 second for
   each sleep, 20 means 20 max requests in total. Then we run the producer, and then we use consumer to create 5 consumers. 
