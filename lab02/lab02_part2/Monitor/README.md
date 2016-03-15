@@ -1,13 +1,16 @@
+#Part 2 java monitor
+
+<br>
 ##Team Member:
 shengbo lou: 28530995<br>
 zhongce ji: 28551884<br>
 yucheng lu: 28411887
 
-##compile: 
+##Compile: 
 use eclipse or javac
 
-##run: 
-./Main
+##Run: 
+Main class
 
 ##Description:
   This is the second part of the lab2, here we will use monitor to do the same program as the
