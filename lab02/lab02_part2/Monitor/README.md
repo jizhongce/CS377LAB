@@ -66,7 +66,7 @@ And also we have some synchronized method:
   in the queue.Then we get new real time of the machine, then print out the output of the program. After that we
   will sleep the producer for the sleep_time. Then we notify other waiting threads.
 
-* <strong>getRequest<strong>: This method will return Request type. In the function first we will create the request, and then notify
+* <strong>getRequest</strong>: This method will return Request type. In the function first we will create the request, and then notify
   the waiting thread. if the queue is empty then we need to wait. Then after check those things, we will take the
   first request from the request queue, then we decrease the count because one of the request is out. then we get
   the length of the request by call length method of request. After that we get the real time of the machine and print
