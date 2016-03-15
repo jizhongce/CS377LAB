@@ -1,6 +1,6 @@
 # Part 1: Scheduling
 
-##Team Member
+## Team Member
 shengbo lou: 28530995
 zhongce ji: 28551884
 yucheng lu: 28411887
