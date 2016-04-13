@@ -18,17 +18,14 @@ int main(){
 
   unsigned int tmp;
   int count = 1;
-  
+
   while (fscanf(fp,"%i",&tmp)!=-1) {
     unsigned int offset = tmp & offset_mask;
     unsigned int page = tmp & page_mask;
     printf("virtual address v%i is in page number %u and offset %u.\n", count,page,offset);
     count++;
   }
-
-
-
-
+  
   fclose(fp);
 
 }
