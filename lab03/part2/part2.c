@@ -1,70 +1,48 @@
 #include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #include <stdlib.h>
-#include "part2.h"
+// #include "part2.h"
 
 
 void ls(){
 
 }
 
-int create(char name[8], int size){
+void create(char name[8], int size){
+    int fd;
+    char *buf;
 
-  FILE *fp = fopen("file_system","r+b");
-  int pointer[8];
-  //write to free block list
-  int b1;
-  int b2;
-  int count = size;
-  int num=0;
-  int index=0;
-  while (1) {
-    if (count==0) {
-      break;
+    buf = (char *) calloc(1024,sizeof(char));
+
+    fd = open("file2",O_RDWR);
+
+    if(read(fd,buf,1024)<0){
+      printf("empty\n");
     }
-    //get the byte
-    b1=fgetc(fp);
-    if(b1==' '||b1=='\n')
-      continue;
-    b2=fgetc(fp);
+    lseek(fd,0,SEEK_SET);
 
-    num++;
+    buf[2] = 'a';
 
-    if(b2=='1')
-      continue;
-    else{
-      pointer[index] = num;
-      index++;
-      fseek(fp, -1, SEEK_CUR);
-      fputc('1',fp);
-      fseek(fp, 0, SEEK_CUR);
-      count--;
-      continue;
-    } 
-  }
+    if(write(fd,buf, 1024)<0)
+    printf("error: write failed \n");
 
+    //printf("%c\n", buf[0]);
 
+    close(fd);
 
-
-
-
-
-
-
-
-
-
-
-    fclose(fp);
 }
 
-int delete(char name[8]){
-  return 1;
-}
+// int delete(char name[8]){
+//   return 1;
+// }
 
-int read(char name[8], int blockNum, char buf[1024]){
-  return 1;
-}
+// int read(char name[8], int blockNum, char buf[1024]){
+//   return 1;
+// }
 
-int write(char name[8], int blockNum, char buf[1024]){
-  return 1;
-}
+// int write(char name[8], int blockNum, char buf[1024]){
+//   return 1;
+// }
