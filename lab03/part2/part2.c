@@ -8,14 +8,41 @@
 #include "part2.h"
 
 
-void ls(){
-
-}
-
 
 int inode_used(int input){
   return 127+48*input;
 }
+void ls(){
+  int fd = open("file",O_RDONLY);
+
+  int size = 0;
+  char buf[1024];
+  read(fd,buf,1024);
+  int location = 128;
+    for (int i = 1; i <=16; i++){
+      char name[8];
+      int x = inode_used(i);
+      //find one available
+      if(buf[x]==1){
+
+        int name_index = x-47;
+        //write name
+        for (int i = 0; i < 8; ++i)
+        {
+          name[i] = buf[name_index+i];
+        }
+        printf("Name: %s ", name);
+        //write size
+        int size_index = name_index+11;
+        size =  buf[size_index];
+        printf("Size: %i\n", size);
+      }
+    }
+
+
+  close(fd);
+}
+
 
 
 void f_create(char name[8], int size){
@@ -82,18 +109,52 @@ void f_create(char name[8], int size){
 }
 
 int f_delete(char name[8]){
-     int fd = open("file",O_RDWR);
-    for (int i = 0; i < 16; i++)
-    {
-     lseek(fd,0,SEEK_SET);
-     char f[8];
-     lseek(fd,128+(i*48),SEEK_SET);
-     read(fd,f,8);
-     if(strcmp(f,name)==0){
 
-     }
+  int fd = open("file",O_RDWR);
+  lseek(fd,0,SEEK_SET);
+  char f[1024];
+  read(fd,f,1024);
+
+  for (int i = 0; i < 16; i++)
+  {
+    char namex[8];
+    int current_location = 128+(i*48);
+
+    for (int j = 0; j < 8; ++j)
+    {
+      namex[j] = f[current_location+j];
     }
-    close(fd);
+
+    // lseek(fd,128+(i*48),SEEK_SET);
+    if(strcmp(namex,name)==0){
+      // lseek(fd,7+(blockNum*4),SEEK_CUR);
+      // int x[1];
+      // read(fd,x,1);
+      char pointer[8];
+      int tmp = current_location+15;
+      for (int k = 0; k < 8; ++k)
+      {
+        pointer[k] = f[tmp+4*k];
+      }
+
+      for (int z = 0; z < 48; ++z)
+      {
+        f[current_location+z] = 0;
+      }
+
+      for (int x = 0; x < 8; ++x)
+      {
+        if(pointer[x] == 0)
+            continue;
+        f[pointer[x]] = 0;
+      }
+      lseek(fd,0,SEEK_SET);
+      if(!write(fd,f,1024));
+      break;
+    }
+  }
+
+  close(fd);
 }
 
 void f_read(char name[8], int blockNum, char buf[1024]){

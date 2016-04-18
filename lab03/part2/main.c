@@ -19,19 +19,23 @@ int main(){
   }
 
   f_create(x,3);
-  f_write("aaaaaaa",2,buf);
-  char y[1024];
-  f_read("aaaaaaa",2,y);
-  int count=0;
-  for (int i = 0; i < 1024; ++i)
-  {
+  f_create("asdfgh.c",5);
+  f_create("qwerta.c",8);
 
-    /* code */
-    count++;
-    printf("%i: %c\n", count, y[i]);
-  }
+
+  f_write(x,2,buf);
+  f_write("asdfgh.c",3,buf);
+  f_write("qwerta.c",1,buf);
+
+  ls();
+
+  // f_delete(x);
+
+  // ls();
+
+  // f_delete("asdfgh.c");
+  // f_delete("qwerta.c");
 
 
   free(x);
-  // printf("%i\n", strcmp("helloo.c","helloo.c"));
 }
