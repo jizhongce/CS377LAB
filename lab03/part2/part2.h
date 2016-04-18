@@ -1,7 +1,7 @@
 #ifndef __FILE_SYSTEM_INTERFACE_H
 #define __FILE_SYSTEM_INTERFACE_H
 
-int f_create(char name[8], int size);
+int f_create(char name[8],  int size);
 
 int f_delete(char name[8]);
 

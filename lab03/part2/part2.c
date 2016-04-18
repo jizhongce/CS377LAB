@@ -18,9 +18,11 @@ int inode_used(int input){
 
 
 int f_create(char name[8], int size){
+
+    char sizex = (char)size;
     int fd;
     char *buf;
-    int block_pointer[8];
+    int* block_pointer= (int*)malloc(8*sizeof(int));
 
     buf = (char *) calloc(1024,sizeof(char));
 
@@ -60,7 +62,7 @@ int f_create(char name[8], int size){
         }
         //write size
         int size_index = name_index+11;
-        buf[size_index] = size;
+        buf[size_index] = sizex;
 
         //write block pointer
         for (int i = 0; i < 8; ++i)
@@ -71,11 +73,11 @@ int f_create(char name[8], int size){
       }
     }
 
-
     if(write(fd,buf, 1024)<0)
     printf("error: write failed \n");
     close(fd);
-
+    free(block_pointer);
+    free(buf);
 }
 
 int f_delete(char name[8]){
