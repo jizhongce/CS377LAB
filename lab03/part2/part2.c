@@ -3,6 +3,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <string.h>
 #include <stdlib.h>
 #include "part2.h"
 
@@ -17,7 +18,7 @@ int inode_used(int input){
 }
 
 
-int f_create(char name[8], int size){
+void f_create(char name[8], int size){
 
     char sizex = (char)size;
     int fd;
@@ -81,13 +82,74 @@ int f_create(char name[8], int size){
 }
 
 int f_delete(char name[8]){
-  return 1;
+     int fd = open("file",O_RDWR);
+    for (int i = 0; i < 16; i++)
+    {
+     lseek(fd,0,SEEK_SET);
+     char f[8];
+     lseek(fd,128+(i*48),SEEK_SET);
+     read(fd,f,8);
+     if(strcmp(f,name)==0){
+
+     }
+    }
+    close(fd);
 }
 
-int f_read(char name[8], int blockNum, char buf[1024]){
-  return 1;
+void f_read(char name[8], int blockNum, char buf[1024]){
+   int fd = open("file",O_RDWR);
+  for (int i = 0; i < 16; i++)
+  {
+    lseek(fd,0,SEEK_SET);
+    char f[1024];
+    read(fd,f,1024);
+    char namex[8];
+    int current_location = 128+(i*48);
+
+    for (int j = 0; j < 8; ++j)
+    {
+      namex[j] = f[current_location+j];
+    }
+
+    // lseek(fd,128+(i*48),SEEK_SET);
+    if(strcmp(namex,name)==0){
+      // lseek(fd,7+(blockNum*4),SEEK_CUR);
+      // int x[1];
+      // read(fd,x,1);
+      int x = f[current_location+11];
+      printf("%i\n", x);
+      lseek(fd,1024*(x),SEEK_SET);
+      read(fd,buf,1024);
+    }
+  }
+  close(fd);
 }
 
-int f_write(char name[8], int blockNum, char buf[1024]){
-  return 1;
+void f_write(char name[8], int blockNum, char buf[1024]){
+   int fd = open("file",O_RDWR);
+  for (int i = 0; i < 16; i++)
+  {
+    lseek(fd,0,SEEK_SET);
+    char f[1024];
+    read(fd,f,1024);
+    char namex[8];
+    int current_location = 128+(i*48);
+
+    for (int j = 0; j < 8; ++j)
+    {
+      namex[j] = f[current_location+j];
+    }
+
+    // lseek(fd,128+(i*48),SEEK_SET);
+    if(strcmp(namex,name)==0){
+      // lseek(fd,7+(blockNum*4),SEEK_CUR);
+      // int x[1];
+      // read(fd,x,1);
+      int x = f[current_location+11];
+      printf("%i\n", x);
+      lseek(fd,1024*(x),SEEK_SET);
+      write(fd,buf,1024);
+    }
+  }
+  close(fd);
 }
