@@ -13,9 +13,10 @@ int inode_used(int input){
   return 127+48*input;
 }
 void ls(){
+  printf("Listing all the files ........\n");
   int fd = open("file",O_RDONLY);
 
-  int size = 0;
+  int size;
   char buf[1024];
   read(fd,buf,1024);
   int location = 128;
@@ -46,7 +47,7 @@ void ls(){
 
 
 void f_create(char name[8], int size){
-
+    printf("creating file %s\n", name);
     char sizex = (char)size;
     int fd;
     char *buf;
@@ -104,12 +105,17 @@ void f_create(char name[8], int size){
     if(write(fd,buf, 1024)<0)
     printf("error: write failed \n");
     close(fd);
+    // for (int i = 0; i < 8; ++i)
+    // {
+    //   printf("%i\n", block_pointer[i]);
+    // }
+
     free(block_pointer);
     free(buf);
 }
 
 int f_delete(char name[8]){
-
+  printf("deleting file %s\n", name);
   int fd = open("file",O_RDWR);
   lseek(fd,0,SEEK_SET);
   char f[1024];
@@ -117,19 +123,15 @@ int f_delete(char name[8]){
 
   for (int i = 0; i < 16; i++)
   {
-    char namex[8];
+    char *namex = (char*) malloc(9*sizeof(char));
     int current_location = 128+(i*48);
 
     for (int j = 0; j < 8; ++j)
     {
       namex[j] = f[current_location+j];
     }
-
-    // lseek(fd,128+(i*48),SEEK_SET);
+    namex[8] = '\0';
     if(strcmp(namex,name)==0){
-      // lseek(fd,7+(blockNum*4),SEEK_CUR);
-      // int x[1];
-      // read(fd,x,1);
       char pointer[8];
       int tmp = current_location+15;
       for (int k = 0; k < 8; ++k)
@@ -158,6 +160,7 @@ int f_delete(char name[8]){
 }
 
 void f_read(char name[8], int blockNum, char buf[1024]){
+  printf("reading file %s\n", name);
    int fd = open("file",O_RDWR);
   for (int i = 0; i < 16; i++)
   {
@@ -172,13 +175,13 @@ void f_read(char name[8], int blockNum, char buf[1024]){
       namex[j] = f[current_location+j];
     }
 
-    // lseek(fd,128+(i*48),SEEK_SET);
     if(strcmp(namex,name)==0){
-      // lseek(fd,7+(blockNum*4),SEEK_CUR);
-      // int x[1];
-      // read(fd,x,1);
-      int x = f[current_location+11];
-      printf("%i\n", x);
+
+      int x = f[current_location+11+4*(blockNum+1)];
+      if(x == 0){
+        printf("invalid blockNum while reading file %s!!!\n",name);
+        break;
+      }
       lseek(fd,1024*(x),SEEK_SET);
       read(fd,buf,1024);
     }
@@ -187,6 +190,7 @@ void f_read(char name[8], int blockNum, char buf[1024]){
 }
 
 void f_write(char name[8], int blockNum, char buf[1024]){
+  printf("writing file %s\n", name);
    int fd = open("file",O_RDWR);
   for (int i = 0; i < 16; i++)
   {
@@ -201,13 +205,8 @@ void f_write(char name[8], int blockNum, char buf[1024]){
       namex[j] = f[current_location+j];
     }
 
-    // lseek(fd,128+(i*48),SEEK_SET);
     if(strcmp(namex,name)==0){
-      // lseek(fd,7+(blockNum*4),SEEK_CUR);
-      // int x[1];
-      // read(fd,x,1);
-      int x = f[current_location+11];
-      printf("%i\n", x);
+      int x = f[current_location+11+4*(blockNum+1)];
       lseek(fd,1024*(x),SEEK_SET);
       write(fd,buf,1024);
     }

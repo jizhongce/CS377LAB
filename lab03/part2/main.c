@@ -6,7 +6,7 @@
 
 int main(){
   char* x = (char*)malloc(8*sizeof(char));
-  for (int i = 0; i < 7; ++i)
+  for (int i = 0; i < 8; ++i)
   {
     x[i] = 'a';
   }
@@ -16,20 +16,36 @@ int main(){
   for (int i = 0; i < 1024; ++i)
   {
     buf[i] = 'b';
+  }  
+
+  char buf2[1024];
+
+  for (int i = 0; i < 1024; ++i)
+  {
+    buf2[i] = 'c';
   }
 
   f_create(x,3);
-  f_create("asdfgh.c",5);
-  f_create("qwerta.c",8);
+  f_create("zzzzzzzz",3);
+
 
 
   f_write(x,2,buf);
-  f_write("asdfgh.c",3,buf);
-  f_write("qwerta.c",1,buf);
+  f_write("zzzzzzzz",2,buf2);
+  // f_write(x,2,buf);
+ 
 
   ls();
 
-  // f_delete(x);
+  f_delete("zzzzzzzz");
+
+  char xy[1024]; 
+  f_read("aaaaaaaa",7,xy);
+
+  // for (int i = 0; i < 1024; ++i)
+  // {
+  //   printf("%c\n", xy[i]);
+  // }
 
   // ls();
 
