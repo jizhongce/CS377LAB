@@ -46,8 +46,14 @@ int main(){
       printf("%s\n", name);
       fscanf(fp,"%i",&size);
       printf("%i\n", size);
-
+      name[8] = '\0';
+      printf("\n");
+      for(int i=0; i<8; i++){
+        printf("%c",name[i]);
+      }
+        printf("\n");
       f_create(name,size);
+      free(name);
     }
     //list file
     else if(strcmp(type,"L")==0){
@@ -68,7 +74,7 @@ int main(){
       char name[8];
       fscanf(fp,"%s",name);
       printf("%s\n", name);
-      // f_delete(name);
+      f_delete(name);
     }
     //read file
     else{

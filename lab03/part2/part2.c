@@ -21,14 +21,14 @@ void ls(){
   read(fd,buf,1024);
   int location = 128;
     for (int i = 1; i <=16; i++){
-      char name[8];
+      char name[9];
       int x = inode_used(i);
       //find one available
       if(buf[x]==1){
 
         int name_index = x-47;
         //write name
-        for (int i = 0; i < 8; ++i)
+        for (int i = 0; i < 9; ++i)
         {
           name[i] = buf[name_index+i];
         }
@@ -147,7 +147,7 @@ int f_delete(char name[8]){
       for (int x = 0; x < 8; ++x)
       {
         if(pointer[x] == 0)
-            continue;
+            break;
         f[pointer[x]] = 0;
       }
       lseek(fd,0,SEEK_SET);
