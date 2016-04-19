@@ -1,15 +1,8 @@
 #include "stdio.h"
 #include "stdlib.h"
-#include <string.h>
+#include "string.h"
 #include "part2.h"
 
-
-
-
-char* create_name(char* input){
-
-
-}
 
 
 int main(){
