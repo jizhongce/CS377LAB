@@ -20,7 +20,6 @@ int main(){
 
 
   //create disk
-  printf("%s\n",&disk_name);
   char command[90];
   strcpy(command, "./create ");
   strcat(command,&disk_name);
@@ -33,20 +32,14 @@ int main(){
       // printf("%s\n", type);s
     //create file
     if(strcmp(type,"C")==0){
-      char *name = (char*)malloc(9*sizeof(char));
+      char name[8];
       int size;
       fscanf(fp,"%s",name);
-      printf("%s\n", name);
+      // printf("%s\n", name);
       fscanf(fp,"%i",&size);
-      printf("%i\n", size);
-      name[8] = '\0';
-      printf("\n");
-      for(int i=0; i<8; i++){
-        printf("%c",name[i]);
-      }
-        printf("\n");
+      // printf("%i\n", size);
       f_create(name,size);
-      free(name);
+      // free(name);
     }
     //list file
     else if(strcmp(type,"L")==0){
@@ -58,15 +51,15 @@ int main(){
       int size;
       fscanf(fp,"%s",name);
       fscanf(fp,"%i",&size);
-      printf("%s\n", name);
-      printf("%i\n", size);
+      // printf("%s\n", name);
+      // printf("%i\n", size);
       f_write(name,size,buf);
     }
     //delete file
     else if(strcmp(type,"D")==0){
       char name[8];
       fscanf(fp,"%s",name);
-      printf("%s\n", name);
+      // printf("%s\n", name);
       f_delete(name);
     }
     //read file
@@ -75,8 +68,8 @@ int main(){
       int size;
       fscanf(fp,"%s",name);
       fscanf(fp,"%i",&size);
-      printf("%s\n", name);
-      printf("%i\n", size);
+      // printf("%s\n", name);
+      // printf("%i\n", size);
       char buf2[1024];
       f_read(name,size,buf2);
     }
