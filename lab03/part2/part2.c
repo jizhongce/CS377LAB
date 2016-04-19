@@ -51,7 +51,7 @@ void f_create(char name[8], int size){
     char sizex = (char)size;
     int fd;
     char *buf;
-    int* block_pointer= (int*)malloc(8*sizeof(int));
+    int block_pointer[8];
 
     buf = (char *) calloc(1024,sizeof(char));
 
@@ -110,7 +110,7 @@ void f_create(char name[8], int size){
     //   printf("%i\n", block_pointer[i]);
     // }
 
-    free(block_pointer);
+    // free(block_pointer);
     free(buf);
 }
 
