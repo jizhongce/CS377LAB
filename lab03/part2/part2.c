@@ -14,7 +14,7 @@ int inode_used(int input){
 }
 void ls(){
   printf("Listing all the files ........\n");
-  int fd = open("file",O_RDONLY);
+  int fd = open("disk0",O_RDONLY);
 
   int size;
   char buf[1024];
@@ -55,9 +55,9 @@ void f_create(char name[8], int size){
 
     buf = (char *) calloc(1024,sizeof(char));
 
-    fd = open("file",O_RDWR);
+    fd = open("disk0",O_RDWR);
 
-    //read 1024 bytes 
+    //read 1024 bytes
     if(read(fd,buf,1024)<0){
       printf("error: read failed\n");
     }
@@ -116,7 +116,7 @@ void f_create(char name[8], int size){
 
 int f_delete(char name[8]){
   printf("deleting file %s\n", name);
-  int fd = open("file",O_RDWR);
+  int fd = open("disk0",O_RDWR);
   lseek(fd,0,SEEK_SET);
   char f[1024];
   read(fd,f,1024);
@@ -161,7 +161,7 @@ int f_delete(char name[8]){
 
 void f_read(char name[8], int blockNum, char buf[1024]){
   printf("reading file %s\n", name);
-   int fd = open("file",O_RDWR);
+   int fd = open("disk0",O_RDWR);
   for (int i = 0; i < 16; i++)
   {
     lseek(fd,0,SEEK_SET);
@@ -191,7 +191,7 @@ void f_read(char name[8], int blockNum, char buf[1024]){
 
 void f_write(char name[8], int blockNum, char buf[1024]){
   printf("writing file %s\n", name);
-   int fd = open("file",O_RDWR);
+   int fd = open("disk0",O_RDWR);
   for (int i = 0; i < 16; i++)
   {
     lseek(fd,0,SEEK_SET);

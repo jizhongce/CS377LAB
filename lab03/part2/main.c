@@ -4,65 +4,83 @@
 #include "part2.h"
 
 
+
+
+char* create_name(char* input){
+
+
+}
+
+
 int main(){
 
   FILE *fp = fopen("data/input.txt","r");
 
-  char name;
-  fscanf(fp,"%s",&name);
+
+  char buf[1024];
+  for (int i=0; i<1024;i++) {
+    /* code */
+    buf[i] = 'b';
+  }
+  char disk_name;
+  fscanf(fp,"%s",&disk_name);
 
 
   //create disk
-  printf("%s\n",&name);
+  printf("%s\n",&disk_name);
   char command[90];
   strcpy(command, "./create ");
-  strcat(command,&name);
+  strcat(command,&disk_name);
   system(command);
 
 
-  char type[2];
+  char type[1];
 
   while (fscanf(fp,"%s",type)!=-1) {
-      printf("%s\n", type);
+      // printf("%s\n", type);s
+    //create file
     if(strcmp(type,"C")==0){
-      char name[8];
+      char *name = (char*)malloc(9*sizeof(char));
       int size;
       fscanf(fp,"%s",name);
       printf("%s\n", name);
       fscanf(fp,"%i",&size);
       printf("%i\n", size);
+
+      f_create(name,size);
     }
-    // else if(strcmp(type,"L")){
-    //   printf("L\n");
-    //   continue;
-    // }
-    // else if(strcmp(type,"W")){
-    //   char *name;
-    //   int size;
-
-    //   fscanf(fp,"%s",name);
-    //   fscanf(fp,"%i",&size);
-    //   printf("%s\n", name);
-    //   printf("%i\n", size);
-    //   continue;
-    // }
-    // else if(strcmp(type,"D")){
-    //   char *name;
-
-    //   fscanf(fp,"%s",name);
-    //   printf("%s\n", name);
-    //  continue;
-    // }
-    // else{
-    //   char *name;
-    //   int size;
-
-    //   fscanf(fp,"%s",name);
-    //   fscanf(fp,"%i",&size);
-    //   printf("%s\n", name);
-    //   printf("%i\n", size);
-    //   continue;
-    // }
+    //list file
+    else if(strcmp(type,"L")==0){
+      ls();
+    }
+    //write file
+    else if(strcmp(type,"W")==0){
+      char name[8];
+      int size;
+      fscanf(fp,"%s",name);
+      fscanf(fp,"%i",&size);
+      printf("%s\n", name);
+      printf("%i\n", size);
+      f_write(name,size,buf);
+    }
+    //delete file
+    else if(strcmp(type,"D")==0){
+      char name[8];
+      fscanf(fp,"%s",name);
+      printf("%s\n", name);
+      // f_delete(name);
+    }
+    //read file
+    else{
+      char name[8];
+      int size;
+      fscanf(fp,"%s",name);
+      fscanf(fp,"%i",&size);
+      printf("%s\n", name);
+      printf("%i\n", size);
+      char buf2[1024];
+      f_read(name,size,buf2);
+    }
 
   }
 
