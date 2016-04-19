@@ -123,14 +123,13 @@ int f_delete(char name[8]){
 
   for (int i = 0; i < 16; i++)
   {
-    char *namex = (char*) malloc(9*sizeof(char));
+    char namex[9];
     int current_location = 128+(i*48);
 
     for (int j = 0; j < 8; ++j)
     {
       namex[j] = f[current_location+j];
     }
-    namex[8] = '\0';
     if(strcmp(namex,name)==0){
       char pointer[8];
       int tmp = current_location+15;
