@@ -1,10 +1,72 @@
 #include "stdio.h"
 #include "stdlib.h"
-#include "string.h"
+#include <string.h>
 #include "part2.h"
 
 
 int main(){
+
+  FILE *fp = fopen("data/input.txt","r");
+
+  char name;
+  fscanf(fp,"%s",&name);
+
+  //create disk
+  printf("%s\n",&name);
+  char command[90];
+  strcpy(command, "./create ");
+  strcat(command,&name);
+  system(command);
+
+  char *type = (char*)malloc(sizeof(char));
+  char *file_name;
+  int file_size;
+  fscanf(fp, "%s", &type);
+  fscanf(fp, "%s", &file_name);
+  fscanf(fp, "%i", &file_size);
+
+  printf("%s\n",&type);
+  printf("%s\n",&file_name);
+  printf("%i\n",file_size);
+
+
+  fclose(fp);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   char* x = (char*)malloc(8*sizeof(char));
   for (int i = 0; i < 8; ++i)
   {
