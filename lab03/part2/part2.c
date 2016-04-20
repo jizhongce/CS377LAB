@@ -59,16 +59,15 @@ void ls(){
 
 //This is how we implement the create function
 void f_create(char name[8], int size){
+
     printf("creating file %s\n", name);
     //This is the size of the file we will create
     char sizex = (char)size;
     int fd;
     //This is a buffer we will used to read the file system
-    char *buf;
+    char *buf = (char *) calloc(1024,sizeof(char));
     //This will be used to store the block number that the file will use
-    int block_pointer[8];
-
-    buf = (char *) calloc(1024,sizeof(char));
+    char *block_pointer = (char*)calloc(8,sizeof(char));
     //open the file
     fd = open("disk0",O_RDWR);
 
@@ -128,10 +127,11 @@ void f_create(char name[8], int size){
     //Then we write the buffer back into the file system
     if(write(fd,buf, 1024)<0)
     printf("error: write failed \n");
-    //close the file
-    close(fd);
     //free the buffer which is used to read the file
     free(buf);
+    free(block_pointer);
+    //close the file
+    close(fd);
 }
 
 //This is how we implement the delete function
@@ -149,7 +149,7 @@ void f_delete(char name[8]){
   for (int i = 0; i < 16; i++)
   {
     //This array is used to store the name which is read from the inode
-    char namex[9];
+    char namex[9] = "";
     //This is the first character of the file name
     int current_location = 128+(i*48);
     //read the name from the inode into the namex
