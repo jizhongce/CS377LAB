@@ -6,76 +6,85 @@
 
 
 int main(){
-
+  //open the input file
   FILE *fp = fopen("data/input.txt","r");
 
-
+  //create a dummy buf for writing
   char buf[1024];
   for (int i=0; i<1024;i++) {
     /* code */
     buf[i] = 'b';
   }
+  //get the disk name from the first line of the input file
   char disk_name;
   fscanf(fp,"%s",&disk_name);
 
 
-  //create disk
+  //create disk by using the given file
   char command[90];
   strcpy(command, "./create ");
   strcat(command,&disk_name);
   system(command);
 
-
+  //This is use to store the type of the action
   char type[1];
-
+  //read the file until the last
   while (fscanf(fp,"%s",type)!=-1) {
       // printf("%s\n", type);s
     //create file
+    //If the type of action is C, then we get the name and size of the file and call the create file function
     if(strcmp(type,"C")==0){
       char name[8];
       int size;
+      //read the name of the file
       fscanf(fp,"%s",name);
-      // printf("%s\n", name);
+      //read the size of the file
       fscanf(fp,"%i",&size);
-      // printf("%i\n", size);
+      //call the function to create a file
       f_create(name,size);
-      // free(name);
     }
     //list file
+    //If the type of action is L, then we list all the file in the file system
     else if(strcmp(type,"L")==0){
+      //here we call the ls function to list file
       ls();
     }
-    //write file
+    //write
+    //If the type of action is C, then we get the name and size of the file and call the create file function
     else if(strcmp(type,"W")==0){
       char name[8];
       int size;
+      //read the name of the file
       fscanf(fp,"%s",name);
+      //read the block number of the file
       fscanf(fp,"%i",&size);
-      // printf("%s\n", name);
-      // printf("%i\n", size);
+      //Here we call the create function to write the specific block of that file
       f_write(name,size,buf);
     }
     //delete file
     else if(strcmp(type,"D")==0){
       char name[8];
+      //read the name of the file
       fscanf(fp,"%s",name);
-      // printf("%s\n", name);
+      //Here we call the delete function to delete the file
       f_delete(name);
     }
     //read file
     else{
       char name[8];
       int size;
+      //read the name of the file
       fscanf(fp,"%s",name);
+      //read the block number of the file
       fscanf(fp,"%i",&size);
-      // printf("%s\n", name);
-      // printf("%i\n", size);
+      //create a buffer to store the data read form the block
       char buf2[1024];
+      //Here we call the create function to read the specific block of that file
       f_read(name,size,buf2);
     }
 
   }
-
+  //close file
   fclose(fp);
 
 }

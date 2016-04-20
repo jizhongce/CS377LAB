@@ -19,7 +19,7 @@ address.
 * part1.c
 This file have a class which is main class. In the main, first we will read
 first two lines from the input file. Here we will use fscanf to read each lines
-```java
+```c
 fscanf(fp,"%i",&offset_num);
 fscanf(fp,"%i",&page_num);
 ```
@@ -27,7 +27,7 @@ For the first line, we will read the offset number from the input file and assig
 it to the unsigned int offset_num. For the second line, we will read the page
 number from the input file and assign it to the unsigned int page_num. After that
 we will will create the mask for both offset number and page number:
-```java
+```c
 unsigned int offset_mask = (1<<offset_num)-1;
 unsigned int page_mask = ((1<<page_num)-1)<<offset_num;
 ```
@@ -37,7 +37,7 @@ offset number. For the second line we move 1 to left for page number, then minus
 to get the mask of the page. Then we have to move the mask to left for offset number.
 Then the mask will be the right position which is the page number's position.
 Then we jump into the while loop, to read each virtual address from the input:
-```java
+```c
 unsigned int offset = tmp & offset_mask;
 unsigned int page = tmp & page_mask;
 ```
