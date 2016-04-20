@@ -135,7 +135,7 @@ void f_create(char name[8], int size){
 }
 
 //This is how we implement the delete function
-int f_delete(char name[8]){
+void f_delete(char name[8]){
   printf("deleting file %s\n", name);
   //open the file
   int fd = open("disk0",O_RDWR);

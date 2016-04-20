@@ -27,7 +27,7 @@ and set block that the file used as free so that next create file can use these 
 file in the block because it will be automaticly overwirten when other file is going to write data into that
 block
 */
-int f_delete(char name[8]);
+void f_delete(char name[8]);
 
 /*
 The read function will take three arguements which are file name, block number and a buffer. The function
