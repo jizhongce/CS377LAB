@@ -3,7 +3,19 @@
 #include "string.h"
 #include "part2.h"
 
-
+//create a duumy buff for the file
+void createDummyBuff(char name[8],int size, char buf[1024]){
+  char tmp[16] = {'T','h','e',' ',size+48,' ','b','l','o','c','k',' ','f','o','r',' '};
+  for (int i=0; i<16;i++) {
+    buf[i] = tmp[i] ;
+  }
+  for (int i=0; i<8;i++) {
+    buf[16+i] = name[i] ;
+  }
+  for (int i=0; i<1000;i++) {
+    buf[24+i] = 'a' + (rand() % 26);;
+  }
+}
 
 int main(){
   //open the input file
@@ -59,6 +71,7 @@ int main(){
       //read the block number of the file
       fscanf(fp,"%i",&size);
       //Here we call the create function to write the specific block of that file
+      createDummyBuff(name,size,buf);
       f_write(name,size,buf);
     }
     //delete file
