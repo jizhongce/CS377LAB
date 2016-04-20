@@ -1,4 +1,4 @@
-# Part 1: File Systems
+# Part 2: File Systems
 
 ## Team Member
 shengbo lou: 28530995
