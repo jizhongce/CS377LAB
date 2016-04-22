@@ -22,7 +22,7 @@ This is the interface of the part2, in the file we have 5 methods that we need
 to implements:
 ```c
 void f_create(char name[8],  int size);
-int f_delete(char name[8]);
+void f_delete(char name[8]);
 void f_read(char name[8], int blockNum, char buf[1024]);
 void f_write(char name[8], int blockNum, char buf[1024]);
 void ls();
